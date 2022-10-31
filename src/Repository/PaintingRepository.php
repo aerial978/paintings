@@ -39,6 +39,15 @@ class PaintingRepository extends ServiceEntityRepository
         }
     }
 
+    public function lastThree()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Painting[] Returns an array of Painting objects
 //     */
