@@ -14,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Painting[]    findAll()
  * @method Painting[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ArtworkRepository extends ServiceEntityRepository
+class PaintingRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

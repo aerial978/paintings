@@ -35,7 +35,7 @@ class Painting
     private ?\DateTimeInterface $dateRealisation = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
@@ -142,12 +142,12 @@ class Painting
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
