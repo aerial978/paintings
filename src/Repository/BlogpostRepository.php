@@ -39,6 +39,15 @@ class BlogpostRepository extends ServiceEntityRepository
         }
     }
 
+    public function lastThree()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Blogpost[] Returns an array of Blogpost objects
 //     */

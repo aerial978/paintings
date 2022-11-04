@@ -6,56 +6,24 @@
 				<p class="text-muted">Far far away, behind the word mountains.</p>
 			</div>
 		</div>
+		{% for painting in paintings %}
 		<div class="card mb-3 shadow-lg mb-4" style="width: 100%;">
 			<div class="row g-0">
 				<div class="col-md-5">
-					<a href=""><img src="{{ asset('assets/images/image1.jpeg') }}" class="img-fluid rounded-start h-100" alt="..."></a>
+					<a href=""><img src="{{ painting.file }}" class="img-fluid rounded-start h-100" alt="..."></a>
 				</div>
 				<div class="col-md-7">
 					<div class="card-body mt-2 p-4 mt-xl-4">
 						<span class="badge bg-secondary mb-3">New</span>
-						<h5 class="card-title mb-3">Card title</h5>
-						<p class="card-text mb-4">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						<h5 class="card-title mb-3">{{ painting.name }}</h5>
+						<p class="card-text mb-4">{{ painting.description|u.truncate(160, '...', false) }}</p>
 						<p class="card-text">
-							<small class="text-muted d-flex justify-content-end">Last updated 3 mins ago</small>
+							<small class="text-muted d-flex justify-content-end">Created at {{ painting.createdAt|date('d/m/Y') }}</small>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="card mb-3 shadow-lg mb-4" style="width: 100%;">
-			<div class="row g-0">
-				<div class="col-md-5">
-					<a href=""><img src="{{ asset('assets/images/image1.jpeg') }}" class="img-fluid rounded-start h-100" alt="..."></a>
-				</div>
-				<div class="col-md-7">
-					<div class="card-body mt-2 p-4 mt-xl-4">
-						<span class="badge bg-secondary mb-3">New</span>
-						<h5 class="card-title mb-3">Card title</h5>
-						<p class="card-text mb-4">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						<p class="card-text">
-							<small class="text-muted d-flex justify-content-end">Last updated 3 mins ago</small>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="card mb-3 shadow-lg mb-4" style="width: 100%;">
-			<div class="row g-0">
-				<div class="col-md-5">
-					<a href=""><img src="{{ asset('assets/images/image1.jpeg') }}" class="img-fluid rounded-start h-100" alt="..."></a>
-				</div>
-				<div class="col-md-7">
-					<div class="card-body mt-2 p-4 mt-xl-4">
-						<span class="badge bg-secondary mb-3">New</span>
-						<h5 class="card-title mb-3">Card title</h5>
-						<p class="card-text mb-4">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						<p class="card-text">
-							<small class="text-muted d-flex justify-content-end">Last updated 3 mins ago</small>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
 </section>
