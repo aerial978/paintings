@@ -1,0 +1,54 @@
+:root {
+    --primaryFontFamily: 'Poppins';
+    --primaryColor: #647C90;
+}
+
+body {
+    font-family: var(--primaryFontFamily);   
+}
+
+header {
+    border-bottom: 3px solid var(--primaryColor);
+}
+
+.jumbotron {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+section {
+    padding: 70px 0px 50px 0px;
+}
+
+.artwork-section .card {
+    border: none!important;
+}
+
+.artwork-section img {
+    border-radius: none;
+}
+
+.blogpost-section {
+    background-color: #dfe0e1!important;
+    border-bottom: 3px solid var(--primaryColor);
+    
+}
+
+.blogpost-section .card {
+    border: none!important;
+}
+
+.blogpost-section .card:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.50);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.blogpost-section .btn-link {
+    text-decoration: none!important;
+}
+
+footer {
+    background: var(--primaryColor);
+}
