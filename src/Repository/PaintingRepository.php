@@ -48,6 +48,13 @@ class PaintingRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function allPaintings()
+    {
+        return $this->createQueryBuilder('p')
+            ->getQuery();        
+    }
+
+
 //    /**
 //     * @return Painting[] Returns an array of Painting objects
 //     */

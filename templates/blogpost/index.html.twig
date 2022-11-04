@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paintings - Painting
+{% endblock %}
+
+{% block body %}
+	<section class="blogpost-section bg-light bottom-line mb-2" id="">
+		<div class="container">
+			<div class="row">
+				<div class="col-7 mb-4">
+					<h2 class="font-weight-bold">Latest news</h2>
+					<p class="text-muted">Far far away, behind the word mountains.</p>
+				</div>
+			</div>
+			<div class="row">
+				{% for blogpost in blogposts %}
+						<div class="col-md-6 mb-5 mb-lg-0 col-lg-4">
+                            <div class="card mb-4">  
+                                <div class="p-4 bg-white rounded rounded-2">
+                                    <h5 class="card-title mb-3">{{ blogpost.title }}</h5>
+                                    <p>{{ blogpost.content|u.truncate(125, '...', false) }}</p>
+                                    <hr>
+                                    <p class="text-muted date d-flex justify-content-end">Created at {{ blogpost.createdAt|date('d/m/Y') }}</p> 
+                                </div>
+                            </div>
+                        </div>    
+				{% endfor %}
+				<div class="navigation d-flex justify-content-center mt-5">
+            		{{ knp_pagination_render(blogposts) }}
+            	</div>
+			</div> 
+		</div>
+	</section>
+{% endblock %}
