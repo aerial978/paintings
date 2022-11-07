@@ -26,10 +26,10 @@ class PaintingController extends AbstractController
         ]);
     }
 
-    #[Route('/painting/{slug}', name: 'painting.details', methods: ['GET'])]
+    #[Route('/painting/{slug}', name: 'painting.detail', methods: ['GET'])]
     public function details(Painting $painting): Response
     {
-        return $this->render('painting/details.html.twig', [
+        return $this->render('painting/detail.html.twig', [
             'painting' => $painting,
         ]);
     }
