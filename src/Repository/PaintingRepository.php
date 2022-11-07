@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Painting;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Painting>
@@ -48,10 +49,14 @@ class PaintingRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function allPaintings()
+    public function findAllPortfolio(Category $category): array
     {
         return $this->createQueryBuilder('p')
-            ->getQuery();        
+            ->where(':category MEMBER OF p.category')
+            ->andWhere('p.portfolio = TRUE')
+            ->setParameter('category', $category)
+            ->getQuery()
+            ->getResult();
     }
 
 

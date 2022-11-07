@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio
+{% endblock %}
+
+{% block body %}
+	<div class="hero-page d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ asset('assets/images/image1.jpeg') }}')">
+		<div class="container">
+			<div class="row">
+				<div class="position-relative">
+					<h1 class="font-weight-bold text-center text-white">Portfolio</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section class="portfolio-section bg-light mb-2 bottom-line" id="portfolio-section">
+		<div class="container">
+			<div class="mb-5">
+				<div class="row">
+					{% for category in categories %}
+						{% set img = category.painting|last %}
+						<div class="col-md-6 col-lg-4">
+							<div class="card mb-5 shadow-lg bg-body rounded">
+								<a href="{{ path('portfolio.category', {'slug': category.slug}) }}" class="text-decoration-none text-dark">
+									<img src="{{ img.file }}" alt="" class="img-fluid">
+									<div class="p-4 h-100 bg-white">
+										<h4 class="mb-2">{{ category.name }}</h4>
+										<small>{{ category.description }}</small>
+									</div>
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

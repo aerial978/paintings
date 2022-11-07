@@ -11,10 +11,11 @@ header {
     border-bottom: 3px solid var(--primaryColor);
 }
 
-.jumbotron {
+.hero-page {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    height: 60vh;
 }
 
 section {
@@ -51,6 +52,13 @@ section {
 footer {
     background: var(--primaryColor);
 }
+
+.about-section {
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 /*
 @media (max-width: 768px) {
     .footer {
@@ -59,8 +67,3 @@ footer {
 }
 */
 
-.about {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}

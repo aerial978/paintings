@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio
+{% endblock %}
+
+{% block body %}
+	<div class="hero-page d-flex align-items-center flex-column justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ asset('assets/images/image1.jpeg') }}')">
+		<div class="container">
+			<div class="row">
+				<div class="position-relative text-center">
+					<h1 class="font-weight-bold text-white">{{ category.name }}</h1>
+					<p class="text-white mb-4">{{ category.description }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section class="portfolio-section bg-light bottom-line mb-2" id="portfolio-section">
+		<div class="container">
+			<div class="row grid">
+				{% for painting in paintings %}
+					<div class="col-lg-4">
+						<img class="zoom-dark img-fluid" id="zoom-container" src="{{ painting.file }}">	
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}
