@@ -16,6 +16,7 @@
 				{% for painting in paintings %}
 					<div class="col-12 col-md-6 flex">
 						<div class="card mb-5 shadow-lg" style="width: 30rem;">
+						<a href="{{ path('painting.details', {'slug': painting.slug}) }}" class="text-decoration-none text-dark">
 							<img src="{{ painting.file }}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<span class="badge bg-secondary mb-3">New</span>
@@ -26,7 +27,8 @@
 								</p>
 							</div>
 						</div>
-					</div>
+						</a>
+					</div>	
 				{% endfor %}
 				<div class="navigation d-flex justify-content-center mt-5">
 					{{ knp_pagination_render(paintings) }}

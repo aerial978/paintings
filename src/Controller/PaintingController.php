@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Painting;
 use App\Repository\PaintingRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,6 +23,14 @@ class PaintingController extends AbstractController
         
         return $this->render('painting/index.html.twig', [
             'paintings' => $paintings,
+        ]);
+    }
+
+    #[Route('/painting/{slug}', name: 'painting.details', methods: ['GET'])]
+    public function details(Painting $painting): Response
+    {
+        return $this->render('painting/details.html.twig', [
+            'painting' => $painting,
         ]);
     }
 }
