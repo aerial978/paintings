@@ -1,10 +1,10 @@
 <div class="container-fluid p-0">
-    <div class="jumbotron" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ asset('assets/images/image1.jpeg') }}')">
-        <div class="container d-flex justify-content-center align-items-center" style="min-height: 600px;">
+    <div class="welcome-section jumbotron hero-page d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ paintings[0].file }}')">
+        <div class="container">
             <div class="content text-center">
                 <h1 class="mb-3 text-light">Jacques Monet</h1>
                 <p class="fs-4 mb-5 text-light">Painter in Blagnac in the heart of Haute-Garonne</p>
-                <button class="btn btn-primary btn-lg" type="button">Discover my portfolio</button>
+                <a href="{{ path('portfolio') }}" type="button" class="btn btn-primary btn-lg">Discover my portfolio</a>
             </div>    
         </div>
     </div>
