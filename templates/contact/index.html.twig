@@ -1,0 +1,51 @@
+{% extends 'baseform.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+    <div class="contact-section">
+        <div class="container-fluid d-flex flex-column vh-100">
+            <div class="row align-items-center justify-content-between vh-100">
+                <div class="col-lg-5 align-self-stretch" style="background-image:url('{{ asset('assets/images/placeholder.jpg') }}'); background-position:center; background-size:cover;">   
+                </div>
+                <div class="col-lg-7 d-flex justify-content-center">
+                    <div class="d-flex justify-content-center flex-column">
+                        <h2 class="fw-bold mb-2">Contact Me</h2>
+                        <p class="fs-lg text-muted mb-0">
+                            A question ? Do you want to buy a canvas ? Please feel free to contact me !
+                        </p>
+                        <hr class="hr-sm my-6 my-md-8 mx-auto bg-gray-300">
+                        {{ form_start(form) }}
+                            {% for message in app.flashes('success') %}
+                                <div class="alert alert-success">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                            <div class="my-custom-class-for-errors">
+                                {{ form_errors(form) }}
+                            </div>
+                            <div class="form-group mb-5">
+                                {{ form_label(form.name) }}
+                                {{ form_widget(form.name) }}
+                            </div>
+                            <div class="form-group mb-5">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="form-group mb-5">
+                                {{ form_label(form.message) }}
+                                {{ form_widget(form.message) }}
+                            </div>
+                            <div class="form-group mb-0">
+                                <div class="d-flex justify-content-between">
+                                {{ form_widget(form.send) }}
+                               <a href="{{ path('home.index') }}" class="text-decoration-none"><button type="button" class="btn btn-primary">Back</button></a>
+                                </div>
+                            </div>
+                        {{ form_end(form) }}      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
