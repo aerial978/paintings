@@ -11,7 +11,7 @@
 				<a href="{{ path('painting.detail', {'slug': painting.slug }) }}" class="text-decoration-none text-dark">
 					<div class="row g-0">
 						<div class="col-md-5">
-							<img src="{{ vich_uploader_asset(painting, 'imageFile') }}" class="img-fluid rounded-start h-100" alt="...">
+							<img src="{{ vich_uploader_asset(painting, 'imageFile')|imagine_filter('miniature') }}" class="img-fluid rounded-start h-100" alt="painting">
 						</div>
 						<div class="col-md-7">
 							<div class="card-body mt-2 p-4 mt-xl-4">

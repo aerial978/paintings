@@ -21,3 +21,7 @@
 /public/uploads/paintings/*
 !/public/uploads/paintings/image1.jpeg
 
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

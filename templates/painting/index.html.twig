@@ -17,7 +17,7 @@
 					<div class="col-12 col-xl-6 d-flex justify-content-center">
 						<div class="card mb-5 shadow-lg" style="width: 30rem;">
 						<a href="{{ path('painting.detail', {'slug': painting.slug}) }}" class="text-decoration-none text-dark">
-							<img src="{{ vich_uploader_asset(painting, 'imageFile') }}" class="card-img-top" alt="...">
+							<img src="{{ vich_uploader_asset(painting, 'imageFile')|imagine_filter('miniature') }}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<span class="badge bg-secondary mb-3">New</span>
 								<h5 class="card-title">{{ painting.name }}</h5>
