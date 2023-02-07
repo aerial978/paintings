@@ -1,0 +1,38 @@
+{% extends 'baseform.html.twig' %}
+
+{% block title %}Login - Painting{% endblock %}
+
+{% block body %}
+    <div class="contact-section">
+        <div class="container-fluid d-flex flex-column vh-100">
+            <div class="row align-items-center justify-content-between vh-100">
+                <div class="col-lg-5 align-self-stretch" style="background-image:url('{{ asset('assets/images/placeholder.jpg') }}'); background-position:center; background-size:cover;">   
+                </div>
+                <div class="col-lg-7 d-flex justify-content-center">
+                    <div class="d-flex justify-content-center flex-column w-50">
+                        <div class="login-title mb-5">
+                            <h2 class="fw-bold mb-2">Ouvrir une session</h2>
+                            <small class="text-muted">Administration du site internet</small>
+                        </div>
+                        {% if error %}
+                            <div class="alert alert-danger mt-4">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+                        <form action="{{ path('security.login') }}" method="post">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="_username" id="username">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="_password" id="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3 w-100">Ouvrir une session</button>
+                        </form>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
