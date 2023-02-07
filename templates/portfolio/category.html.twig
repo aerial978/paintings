@@ -19,7 +19,7 @@
 			<div class="row grid">
 				{% for painting in paintings %}
 					<div class="col-lg-4">
-						<img class="zoom-dark img-fluid" id="zoom-container" src="{{ painting.file }}">	
+						<img class="zoom-dark img-fluid" id="zoom-container" src="{{ vich_uploader_asset(painting, 'imageFile') }}">	
 					</div>
 				{% endfor %}
 			</div>

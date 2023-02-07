@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Blogpost;
+use App\Entity\Painting;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -28,5 +29,6 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
         yield MenuItem::linkToCrud('News', 'fas fa-newspaper', Blogpost::class);
+        yield MenuItem::linkToCrud('Paintings','fas fa-palette', Painting::class);
     }
 }

@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\PaintingRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PaintingRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PaintingRepository::class)]
+#[Vich\Uploadable]
 class Painting
 {
     #[ORM\Id]
@@ -48,6 +51,9 @@ class Painting
 
     #[ORM\Column(length: 255)]
     private ?string $file = null;
+
+    #[Vich\UploadableField(mapping: 'painting_images', fileNameProperty: 'file')]
+    private ?File $imageFile = null;
 
     #[ORM\ManyToOne(inversedBy: 'painting')]
     #[ORM\JoinColumn(nullable: false)]
@@ -200,6 +206,20 @@ class Painting
         $this->file = $file;
 
         return $this;
+    }
+
+    public function setImageFile(File $file = null): void
+    {
+        $this->imageFile = $file;
+
+        if ($file) {
+            $this->createdAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getUser(): ?User

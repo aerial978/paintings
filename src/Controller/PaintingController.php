@@ -16,7 +16,7 @@ class PaintingController extends AbstractController
     public function index(PaintingRepository $paintingRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $paintings = $paginator->paginate(
-            $paintingRepository->findAll(),
+            $paintingRepository->findby([], ['id' => 'DESC']),
             $request->query->getInt('page', 1),
             6
         );
