@@ -4,7 +4,8 @@
 {% endblock %}
 
 {% block body %}
-	<div class="hero-page d-flex align-items-center flex-column justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ asset('assets/images/image1.jpeg') }}')">
+	{% set img = category.painting|last %}
+	<div class="hero-page d-flex align-items-center flex-column justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ vich_uploader_asset(img, 'imageFile') }}')">
 		<div class="container">
 			<div class="row">
 				<div class="position-relative text-center">
@@ -19,7 +20,7 @@
 			<div class="row grid">
 				{% for painting in paintings %}
 					<div class="col-lg-4">
-						<img class="zoom-dark img-fluid" id="zoom-container" src="{{ vich_uploader_asset(painting, 'imageFile') }}">	
+						<img class="zoom-dark img-fluid" id="zoom-container" src="{{ vich_uploader_asset(painting, 'imageFile')|imagine_filter('full') }}">	
 					</div>
 				{% endfor %}
 			</div>

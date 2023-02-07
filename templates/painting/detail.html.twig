@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-12 col-md-8">
                     <section class="px-2">
-                        <img class="w-100 h-auto" src="{{ vich_uploader_asset(painting, 'imageFile') }}" alt="img">
+                        <img class="w-100 h-auto" src="{{ vich_uploader_asset(painting, 'imageFile')|imagine_filter('full') }}" alt="img">
                     </section>
                 </div>
             </div>
