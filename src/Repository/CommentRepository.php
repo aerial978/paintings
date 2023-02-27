@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Comment;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Entity\Blogpost;
+use App\Entity\Painting;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Comment>
@@ -39,28 +41,22 @@ class CommentRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Comment[] Returns an array of Comment objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findComments($value)
+    {
+        if($value instanceof Blogpost) {
+            $object = 'blogpost';
+        }
 
-//    public function findOneBySomeField($value): ?Comment
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        if($value instanceof Painting) {
+            $object = 'painting';
+        }
+
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.' . $object .'= :val')
+            ->andWhere('c.isPublished = true')
+            ->setParameter('val', $value->getId())
+            ->orderBy('c.id','DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

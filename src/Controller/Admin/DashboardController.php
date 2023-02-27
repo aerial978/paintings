@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use App\Entity\Comment;
 use App\Entity\Blogpost;
 use App\Entity\Painting;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,7 +32,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
         yield MenuItem::linkToCrud('News', 'fas fa-newspaper', Blogpost::class);
         yield MenuItem::linkToCrud('Paintings','fas fa-palette', Painting::class);
+        yield MenuItem::linkToCrud('Comments','fas fa-comment', Comment::class);
         yield MenuItem::linkToCrud('Settings','fas fa-cog', User::class);
-    
+        
     }
 }
