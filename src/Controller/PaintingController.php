@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Painting;
+use App\Form\CommentType;
+use App\Service\CommentService;
+use App\Repository\CommentRepository;
 use App\Repository\PaintingRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,11 +30,27 @@ class PaintingController extends AbstractController
         ]);
     }
 
-    #[Route('/painting/{slug}', name: 'painting.detail', methods: ['GET'])]
-    public function details(Painting $painting): Response
+    #[Route('/painting/{slug}', name: 'painting.detail', methods: ['GET', 'POST'])]
+    public function details(Painting $painting, CommentService $commentService, CommentRepository $commentRepository, Request $request): Response
     {
+        $comments = $commentRepository->findComments($painting);
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment = $form->getData();
+            $commentService->persistComment($comment, null, $painting);
+
+            $this->addFlash('success', 'Your comment has been sent, thank you. It will be sent after validation !');
+
+            return $this->redirectToRoute('painting.detail', ['slug' => $painting->getSlug()]);
+        }
+
         return $this->render('painting/detail.html.twig', [
             'painting' => $painting,
+            'form' => $form->createView(),
+            'comments' => $comments
         ]);
     }
 }
