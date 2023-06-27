@@ -32,7 +32,7 @@ Website presenting the works of a painter.
 Git clone the project
 
 ```bash
-  https://github.com/aerial978/painting.git
+  https://github.com/aerial978/paintings.git
 ```
 
 Database
