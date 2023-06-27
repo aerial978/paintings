@@ -1,6 +1,6 @@
-# Painting project
+# Paintings project
 
-Website presenting the works of a painter
+Website presenting the works of a painter.
 
 ## Features
 
