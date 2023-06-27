@@ -66,4 +66,11 @@ Database
 ```bash
   php bin/console doctrine:fixtures:load
 ```
+## Usage
 
+### Admin
+
+#### Admin URL : paintings/admin
+#### Admin access : 
+user@test.com
+password
