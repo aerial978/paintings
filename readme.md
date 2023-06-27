@@ -1,6 +1,6 @@
 # Painting project
 
-Painting project is a website featuring art paintings
+Painting project is a website featuring art paintings.
 
 ## Tech Stack
 
