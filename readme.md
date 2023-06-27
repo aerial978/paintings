@@ -2,7 +2,7 @@
 
 Website presenting the works of a painter
 
-# Features
+## Features
 
 * Blog news
 * Portfolio
