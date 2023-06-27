@@ -72,5 +72,7 @@ Database
 
 #### Admin URL : paintings/admin
 #### Admin access : 
-user@test.com
-password
+  *  email : user@test.com
+  *  password : password
+
+
