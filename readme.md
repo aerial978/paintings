@@ -1,6 +1,6 @@
 # Paintings project
 
-Website presenting the works of a painter.
+This website is a portfolio allowing a painter to present and share his works. It was designed with the Symfony framework.
 
 ## Features
 
