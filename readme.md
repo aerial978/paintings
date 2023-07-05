@@ -2,6 +2,8 @@
 
 This website is a portfolio allowing a painter to present and share his works. It was designed with the Symfony framework.
 
+[![](https://img.shields.io/badge/website-000?style=for-the-badge&logo=ko-fi&logoColor=white)]()
+
 ## Features
 
 * Blog news
